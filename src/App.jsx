@@ -19,7 +19,7 @@ function App() {
             <div className="content">
                 <Routes>
                     <Route path="/" element={<Home/>}/>
-                    <Route path="/profile" element={isAuthenticated === true ? <Profile/> : <SignIn/>}/>
+                    <Route path="/profile" element={isAuthenticated.isAuthenticated === true ? <Profile/> : <SignIn/>}/>
                     <Route path="/signin" element={<SignIn/>}/>
                     <Route path="/signup" element={<SignUp/>}/>
                 </Routes>
