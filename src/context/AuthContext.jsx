@@ -6,27 +6,34 @@ export const AuthContext = createContext({});
 
 export function AuthContextProvider({children}) {
 
-    const [isAuthenticated, setIsAuthenticated] = useState({
-        isAuthenticated: false,
+    const [auth, setAuth] = useState({
+        isAuth: false,
         user: {},
     });
     const navigate = useNavigate();
 
     function signIn(email) {
-        setIsAuthenticated({
-            isAuthenticated: true,
-            user: {email: email},
+        setAuth({
+            isAuth: true,
+            user: {
+                username: '',
+                email: email,
+                id: '',
+            }
         });
         console.log('De gebruiker is ingelogd!');
     }
 
     function signOut() {
-        setIsAuthenticated(false);
+        setAuth({
+            isAuth: false,
+            user: null,
+        });
         console.log('De gebruiker is uitgelogd!');
     }
 
-    const data = {
-        isAuthenticated,
+    const contextData = {
+        isAuth: auth.isAuth,
         signIn,
         signOut,
     };

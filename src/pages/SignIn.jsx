@@ -9,7 +9,10 @@ function SignIn() {
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    function handleFormSubmit(e) {
+    // 1. Async function
+    // 2. Try - catch blok
+    // 3. Axios request
+    async function handleFormSubmit(e) {
         e.preventDefault();
         signIn(email);
         navigate("/profile");

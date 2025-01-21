@@ -6,7 +6,7 @@ import {AuthContext} from '../context/AuthContext';
 function NavBar() {
     const navigate = useNavigate();
 
-    const {isAuthenticated, signOut} = useContext(AuthContext);
+    const {isAuth, signOut} = useContext(AuthContext);
     const data = useContext(AuthContext);
     console.log(data);
 
@@ -25,9 +25,9 @@ function NavBar() {
         </Link>
 
         <div className="user">
-            {isAuthenticated ?
+            {isAuth ?
                 <>
-                    <h5>{isAuthenticated.user.email}</h5>
+                    <h5>{isAuth.user.email}</h5>
                     <button
                         type="button"
                         onClick={handleSignOutClick}
